@@ -1,7 +1,4 @@
-// ConsoleApplication1.cpp : Defines the entry point for the console application.
-//
 
-#include "stdafx.h"
 #include<ctime>
 #include<iostream>
 void testrun(int matrix_size);
@@ -19,8 +16,7 @@ int main()
 	    duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
 		std::cout <<i<< " " << duration <<"s"<< '\n';
 	}
-	printf("%s", "Complete");
-	getchar();
+	
 	return 0;
 }
 
