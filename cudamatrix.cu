@@ -23,7 +23,7 @@ int testmatrix(int K)
 	// Perform matrix multiplication C = A*B
 	// where A, B and C are NxN matrices
 	// Restricted to matrices where N = K*BLOCK_SIZE;
-	int N,K;			
+	int N;			
 	N = K*BLOCK_SIZE;
 	
 	cout << "Executing Matrix Multiplcation" << endl;
