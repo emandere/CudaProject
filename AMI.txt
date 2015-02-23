@@ -1,3 +1,5 @@
 ami-2cbf3e44
 export PATH=/usr/local/cuda-6.5/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-6.5/lib64:$LD_LIBRARY_PATH
+sudo apt-get install git
+git clone git://github.com/emandere/CudaProject
