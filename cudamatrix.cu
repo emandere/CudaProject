@@ -26,8 +26,8 @@ int testmatrix(int K)
 	int N;			
 	N = K*BLOCK_SIZE;
 	
-	cout << "Executing Matrix Multiplcation" << endl;
-	cout << "Matrix size: " << N << "x" << N << endl;
+	//cout << "Executing Matrix Multiplcation" << endl;
+	//cout << "Matrix size: " << N << "x" << N << endl;
 
 	// Allocate memory on the host
 	float *hA,*hB,*hC;
@@ -84,7 +84,7 @@ int main()
 	clock_t start;
 	double duration;
 
-	for (int i = 0; i < 5000; i += 160)
+	for (int i = 0; i < 32 ; i++)
 	{
 		start = std::clock();
 		testmatrix(i);
