@@ -60,7 +60,10 @@ void testrun(int matrix_size)
 	{
 		for (int j = 0; j < matrix_size; j++)
 		{
-			c[i][j] += a[i][j] * b[j][i];
+			for(int k =0;k<matrix_size;k++)
+			{
+				c[i][j] += a[i][k] * b[k][i];
+			}
 		}
 	}
 
