@@ -2,7 +2,7 @@
 #include<iostream>
 using namespace std;
 
-#define BLOCK_SIZE 160
+#define BLOCK_SIZE 32
 
 __global__ void gpuMM(float *A, float *B, float *C, int N)
 {
@@ -84,7 +84,7 @@ int main()
 	clock_t start;
 	double duration;
 
-	for (int i = 0; i < 32 ; i++)
+	for (int i = 140; i < 150 ; i++)
 	{
 		start = std::clock();
 		testmatrix(i);
