@@ -38,8 +38,8 @@ int testmatrix(int K)
 	// Initialize matrices on the host
 	for (int j=0; j<N; j++){
 	    for (int i=0; i<N; i++){
-	    	hA[j*N+i] = 2.f*(j+i);
-			hB[j*N+i] = 1.f*(j-i);
+	    	hA[j*N+i] = 1.0f;//2.f*(j+i);
+			hB[j*N+i] = 1.0f;//1.f*(j-i);
 	    }
 	}
 
@@ -70,7 +70,7 @@ int testmatrix(int K)
 	cudaMemcpy(C,dC,size,cudaMemcpyDeviceToHost);
 	cudaFree( dA );
 	cudaFree( dB );
-
+	cout<<"N "<<N<<" C[0][0] "<<C[0]<<endl;
 	
 	
 }
