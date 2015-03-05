@@ -44,7 +44,7 @@ int testmatrix(int K)
 	}
 
 	// Allocate memory on the device
-	int size = N*N*sizeof(float);	// Size of the memory in bytes
+	long size = N*N*sizeof(float);	// Size of the memory in bytes
 	float *dA,*dB,*dC;
 	cudaMalloc(&dA,size);
 	cudaMalloc(&dB,size);
