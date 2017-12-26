@@ -4,7 +4,7 @@
 #include <cstdlib>
 using namespace std;
 
-#define BLOCK_SIZE 64
+#define BLOCK_SIZE 256
 
 __global__ void gpuSum(int *prices,int *sumpricesout,int days,int seconds,int N)
 {
