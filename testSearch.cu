@@ -59,5 +59,7 @@ int main()
        cout<<sumpricesout[i]<<endl;
    }
    
+   cudaFree(dPrices);
+   cudaFree(dSumPrices); 
    return 0;
 }
