@@ -48,10 +48,10 @@ int main()
     duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
     cout<<"CPU: "<< duration <<"s"<< '\n'; 
     
-   for(int i=0;i<days;i++)
+   /*for(int i=0;i<days;i++)
    {
        cout<<sumpricesoutCPU[i]<<endl;
-   }
+   }*/
     
    long sizePrices = N * sizeof(int);
    long sizeSumPrices = days * sizeof(int); 
@@ -64,17 +64,17 @@ int main()
    cudaMemcpy(dPrices,prices,sizePrices,cudaMemcpyHostToDevice); 
    cudaMemcpy(dSumPrices,sumpricesout,sizeSumPrices,cudaMemcpyHostToDevice); 
     
-   gpuSum<<<2,BLOCK_SIZE>>>(dPrices,dSumPrices,days,seconds,N);
+   gpuSum<<<(int)ceil(days/(float)BLOCK_SIZE),BLOCK_SIZE>>>(dPrices,dSumPrices,days,seconds,N);
    
    cudaMemcpy(sumpricesout,dSumPrices,sizeSumPrices,cudaMemcpyDeviceToHost); 
    
    duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
    cout<<"GPU: "<< duration <<"s"<< '\n';  
    cout<<"CUDA!"<<endl;
-   for(int i=0;i<days;i++)
+   /*for(int i=0;i<days;i++)
    {
        cout<<sumpricesout[i]<<endl;
-   }
+   }*/
     
    int error = 0;
    for(int i=0;i<days;i++)
@@ -82,7 +82,7 @@ int main()
        error+=sumpricesout[i] - sumpricesoutCPU[i];
    }
     cout<<"Error: "<< error<<endl; 
-    cout<<(int)ceil(days/(float)BLOCK_SIZE)<<endl;
+    //cout<<(int)ceil(days/(float)BLOCK_SIZE)<<endl;
    cudaFree(dPrices);
    cudaFree(dSumPrices); 
    return 0;
