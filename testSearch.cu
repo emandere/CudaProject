@@ -52,7 +52,7 @@ int main()
     
    gpuSum<<< 1,BLOCK_SIZE>>>(dPrices,dSumPrices,days,seconds,N);
    
-   cudaMemcpy(sumpricesout,dSumPrices,days,cudaMemcpyDeviceToHost); 
+   cudaMemcpy(sumpricesout,dSumPrices,sizeSumPrices,cudaMemcpyDeviceToHost); 
    cout<<"CUDA!"<<endl;
    for(int i=0;i<days;i++)
    {
