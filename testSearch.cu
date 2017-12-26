@@ -31,7 +31,7 @@ int main()
       prices[i]=rand()%100;  
    }
    
-   int sumprices;
+  
    for(int i=0;i<N;i=i+seconds)
    {
       sumprices=0;
