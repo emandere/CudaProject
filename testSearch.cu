@@ -31,7 +31,7 @@ int main()
    int * prices = new int[days*seconds];
    int  * sumpricesout = new int[days];
    int  * sumpricesoutCPU = new int[days]; 
-   int sumprices;
+  
    for(int i=0;i<N;i++)
    {
       prices[i]=rand()%100;  
