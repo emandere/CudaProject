@@ -6,18 +6,19 @@ int main()
 {
    int days = 12;
    int seconds = 1000;
+   int N = days*seconds;
    
-   float * prices = new float[N*N];
-   for(int i=0;i<N*N;i++)
+   float * prices = new float[days*seconds];
+   for(int i=0;i<N;i++)
    {
       prices[i]=rand()%100;  
    }
    
    int sumprices;
-   for(int i=0;i<N*N;i=i+seconds)
+   for(int i=0;i<N;i=i+seconds)
    {
       sumprices=0;
-      for(int j=0;j<i+N;j++)
+      for(int j=0;j<i+seconds;j++)
          sumprices+=prices[j];
       cout<<sumprices<<endl;
    }
