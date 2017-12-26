@@ -8,18 +8,18 @@ using namespace std;
 __global__ void gpuSum(int *prices,int *sumpricesout,int days,int seconds,int N)
 {
     int currentday = blockIdx.x*blockDim.x + threadIdx.x;
-    if(currentday<days)
-    {
+    //if(currentday<days)
+    //{
        int start = currentday * seconds;
-       int end = (currentday * seconds)+seconds;
+       int end = start+seconds;
        sumpricesout[currentday]=end;
        for(int j=start;j<end;++j)
          sumpricesout[currentday]+=prices[j]; 
-    }
+    //}
 }
 int main()
 {
-   int days = 12;
+   int days = 32;
    int seconds = 1000;
    int N = days*seconds;
    
