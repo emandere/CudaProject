@@ -56,7 +56,8 @@ int main()
    long sizePrices = N * sizeof(int);
    long sizeSumPrices = days * sizeof(int); 
    int *dPrices,*dSumPrices;
-    
+   
+   start = std::clock(); 
    cudaMalloc(&dPrices,sizePrices);
    cudaMalloc(&dSumPrices,sizeSumPrices);
     
@@ -66,6 +67,9 @@ int main()
    gpuSum<<< 1,BLOCK_SIZE>>>(dPrices,dSumPrices,days,seconds,N);
    
    cudaMemcpy(sumpricesout,dSumPrices,sizeSumPrices,cudaMemcpyDeviceToHost); 
+   
+   duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
+    cout << duration <<"s"<< '\n';  
    cout<<"CUDA!"<<endl;
    for(int i=0;i<days;i++)
    {
