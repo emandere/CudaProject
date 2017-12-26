@@ -42,7 +42,7 @@ int main()
     
    long sizePrices = N * sizeof(int);
    long sizeSumPrices = days * sizeof(int); 
-   int dPrices,dSumPrices;
+   int * dPrices,dSumPrices;
     
    cudaMalloc(&dPrices,sizePrices);
    cudaMalloc(&dSumPrices,sizeSumPrices);
