@@ -12,7 +12,7 @@ __global__ void gpuSum(int *prices,int *sumpricesout,int days,int seconds,int N)
     {
        int start = currentday * seconds;
        int end = start+seconds;
-       sumpricesout[currentday]=currentday;
+       sumpricesout[currentday]=0;
        for(int j=start;j<end;++j)
          sumpricesout[currentday]+=prices[j]; 
     }
