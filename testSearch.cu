@@ -1,4 +1,5 @@
 #include<ctime>
+#include <cmath>
 #include<iostream>
 #include <cstdlib>
 using namespace std;
@@ -63,7 +64,7 @@ int main()
    cudaMemcpy(dPrices,prices,sizePrices,cudaMemcpyHostToDevice); 
    cudaMemcpy(dSumPrices,sumpricesout,sizeSumPrices,cudaMemcpyHostToDevice); 
     
-   gpuSum<<< 1,BLOCK_SIZE>>>(dPrices,dSumPrices,days,seconds,N);
+   gpuSum<<<(int)ceil(days/BLOCK_SIZE),BLOCK_SIZE>>>(dPrices,dSumPrices,days,seconds,N);
    
    cudaMemcpy(sumpricesout,dSumPrices,sizeSumPrices,cudaMemcpyDeviceToHost); 
    
