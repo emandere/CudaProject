@@ -45,12 +45,12 @@ int main()
       
    }
     duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
-    cout << duration <<"s"<< '\n'; 
+    cout<<"CPU: "<< duration <<"s"<< '\n'; 
     
-   for(int i=0;i<days;i++)
+   /*for(int i=0;i<days;i++)
    {
        cout<<sumpricesoutCPU[i]<<endl;
-   }
+   }*/
     
    long sizePrices = N * sizeof(int);
    long sizeSumPrices = days * sizeof(int); 
@@ -68,12 +68,12 @@ int main()
    cudaMemcpy(sumpricesout,dSumPrices,sizeSumPrices,cudaMemcpyDeviceToHost); 
    
    duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
-    cout << duration <<"s"<< '\n';  
-   cout<<"CUDA!"<<endl;
+   cout<<"GPU: "<< duration <<"s"<< '\n';  
+   /*cout<<"CUDA!"<<endl;
    for(int i=0;i<days;i++)
    {
        cout<<sumpricesout[i]<<endl;
-   }
+   }*/
    
    cudaFree(dPrices);
    cudaFree(dSumPrices); 
