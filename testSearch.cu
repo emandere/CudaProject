@@ -46,7 +46,7 @@ int main()
       
    }
     duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
-	cout <<i<< " " << duration <<"s"<< '\n'; 
+    cout << duration <<"s"<< '\n'; 
     
    for(int i=0;i<days;i++)
    {
