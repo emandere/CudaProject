@@ -64,7 +64,7 @@ int main()
    cudaMemcpy(dPrices,prices,sizePrices,cudaMemcpyHostToDevice); 
    cudaMemcpy(dSumPrices,sumpricesout,sizeSumPrices,cudaMemcpyHostToDevice); 
     
-   gpuSum<<<(int)ceil(days/BLOCK_SIZE),BLOCK_SIZE>>>(dPrices,dSumPrices,days,seconds,N);
+   gpuSum<<<2,BLOCK_SIZE>>>(dPrices,dSumPrices,days,seconds,N);
    
    cudaMemcpy(sumpricesout,dSumPrices,sizeSumPrices,cudaMemcpyDeviceToHost); 
    
