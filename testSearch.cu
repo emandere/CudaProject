@@ -42,7 +42,7 @@ int main()
    {
       sumprices=0;
       for(int j=i;j<i+seconds;j++)
-         sumpricesoutCPU[i]+=prices[j];
+         sumpricesoutCPU[i/seconds]+=prices[j];
       
    }
     duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
