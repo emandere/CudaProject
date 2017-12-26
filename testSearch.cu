@@ -20,7 +20,7 @@ __global__ void gpuSum(int *prices,int *sumpricesout,int days,int seconds,int N)
 }
 int main()
 {
-   int days = 12000;
+   int days = 120000;
    int seconds = 1000;
    
    clock_t start;
