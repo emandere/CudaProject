@@ -3,7 +3,7 @@
 #include <cstdlib>
 using namespace std;
 
-#define BLOCK_SIZE 32
+#define BLOCK_SIZE 64
 
 __global__ void gpuSum(int *prices,int *sumpricesout,int days,int seconds,int N)
 {
@@ -19,7 +19,7 @@ __global__ void gpuSum(int *prices,int *sumpricesout,int days,int seconds,int N)
 }
 int main()
 {
-   int days = 32;
+   int days = 64;
    int seconds = 1000;
    int N = days*seconds;
    
