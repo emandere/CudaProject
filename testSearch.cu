@@ -39,6 +39,25 @@ int main()
          sumprices+=prices[j];
       cout<<sumprices<<endl;
    }
+    
+   long sizePrices = N * sizeof(int);
+   long sizeSumPrices = days * sizeof(int); 
+   int dPrices,dSumPrices;
+    
+   cudaMalloc(&dPrices,sizePrices);
+   cudaMalloc(&dSumPrices,sizeSumPrices);
+    
+   cudaMemcpy(&dPrices,prices,N,cudaMemcpyHostToDevice); 
+   cudaMemcpy(&dSumPrices,sumpricesout,days,cudaMemcpyHostToDevice); 
+    
+   gpuSum<<< 1,BLOCK_SIZE>>>(dPrices,dSumPrices,days,seconds,N);
+   
+   cudaMemcpy(sumpricesout,dSumPrices,days,cudaMemcpyDeviceToHost); 
+   cout<<"CUDA!"<<endl;
+   for(int i=0;i<days;i++)
+   {
+       cout<<sumpricesout[i]<<endl;
+   }
    
    return 0;
 }
