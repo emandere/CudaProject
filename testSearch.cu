@@ -74,7 +74,13 @@ int main()
    {
        cout<<sumpricesout[i]<<endl;
    }*/
-   
+    
+   int error = 0;
+   for(int i=0;i<days;i++)
+   {
+       error+=sumpricesout[i] - sumpricesoutCPU[i];
+   }
+    cout<<"Error: "<< error<<endl;  
    cudaFree(dPrices);
    cudaFree(dSumPrices); 
    return 0;
