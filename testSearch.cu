@@ -81,7 +81,8 @@ int main()
    {
        error+=sumpricesout[i] - sumpricesoutCPU[i];
    }
-    cout<<"Error: "<< error<<endl;  
+    cout<<"Error: "<< error<<endl; 
+    cout<<(int)ceil(days/BLOCK_SIZE<<endl;
    cudaFree(dPrices);
    cudaFree(dSumPrices); 
    return 0;
