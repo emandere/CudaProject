@@ -47,8 +47,8 @@ int main()
    cudaMalloc(&dPrices,sizePrices);
    cudaMalloc(&dSumPrices,sizeSumPrices);
     
-   cudaMemcpy(&dPrices,prices,sizePrices,cudaMemcpyHostToDevice); 
-   cudaMemcpy(&dSumPrices,sumpricesout,sizeSumPrices,cudaMemcpyHostToDevice); 
+   cudaMemcpy(dPrices,prices,sizePrices,cudaMemcpyHostToDevice); 
+   cudaMemcpy(dSumPrices,sumpricesout,sizeSumPrices,cudaMemcpyHostToDevice); 
     
    gpuSum<<< 1,BLOCK_SIZE>>>(dPrices,dSumPrices,days,seconds,N);
    
