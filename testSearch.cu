@@ -21,10 +21,16 @@ int main()
 {
    int days = 12;
    int seconds = 1000;
+   
+   clock_t start;
+   double duration; 
+   start = std::clock();
+    
    int N = days*seconds;
    
    int * prices = new int[days*seconds];
    int  * sumpricesout = new int[days];
+   int  * sumpricesoutCPU = new int[days]; 
    int sumprices;
    for(int i=0;i<N;i++)
    {
@@ -36,8 +42,15 @@ int main()
    {
       sumprices=0;
       for(int j=i;j<i+seconds;j++)
-         sumprices+=prices[j];
-      cout<<sumprices<<endl;
+         sumpricesoutCPU[i]+=prices[j];
+      
+   }
+    duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
+	cout <<i<< " " << duration <<"s"<< '\n'; 
+    
+   for(int i=0;i<days;i++)
+   {
+       cout<<sumpricesoutCPU[i]<<endl;
    }
     
    long sizePrices = N * sizeof(int);
