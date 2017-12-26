@@ -40,7 +40,6 @@ int main()
   
    for(int i=0;i<N;i=i+seconds)
    {
-      sumprices=0;
       for(int j=i;j<i+seconds;j++)
          sumpricesoutCPU[i/seconds]+=prices[j];
       
