@@ -28,7 +28,7 @@ __global__ void gpuMemShared(int *prices,int *sumpricesout,int days,int seconds,
     int currentday = blockIdx.x*blockDim.x + threadIdx.x;
     if(currentday<days)
     {
-       __shared__ int localprices[seconds];    
+       __shared__ int localprices[1000];    
        int start = currentday * seconds;
        int end = start+seconds;
        sumpricesout[currentday]=0;
